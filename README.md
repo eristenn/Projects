@@ -1,3 +1,3 @@
 # Personal Projects & Practive
-Eristen Forsythe
+# Eristen Forsythe
 Auburn University | Computer Science Major | Currently Interning
