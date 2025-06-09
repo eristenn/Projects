@@ -1,0 +1,42 @@
+# Title:Python Word Guessing Game
+# Author:Eristen Forsythe <eristenf@gmail.com>
+# Status:Active
+# Created:09-Jun-2025
+
+												# NOTES
+												# ================================================================
+												
+import random                                                     				# this lets random selections to be made
+
+
+
+word_bank = ['rizz', 'ohio', 'sigma', 'tiktok', 'skibidi']        				# this is all the words it can choose from
+word = random.choice(word_bank)                                   				# this chooses one of the words randomly
+												# the random.choice() method takes word from word_bank list and
+												# assigns it to the word variable
+
+guessedWord = ['_'] * len(word)                   						# this is the blank spaces of characters we havnt guessed yet
+
+attempts = 10                                     						# this is how many attempts you can guess the word
+
+while attempts > 0:         
+                                                             					# We need a while loop here so we can keep attempting, 
+    print('\nCurrent word: ' + ' '.join(guessedWord))      					# until our limit is reached or guessed correctly,
+                                                          					# also displays the current state of the word.
+
+    guess = input('Guess a letter: ').lower()             					# this is a prompt for the user to guess a letter
+
+    if guess in word:                                  						# this determines if the guessed letter is correct or not,
+        for i in range(len(word)):                      					# if it is it loops through each letter of the word
+            if word[i] == guess:                           					# and replace it with the place holder.
+                guessedWord[i] = guess
+        print('Great guess!')
+    else:                                            						# this decreases the attempt number each incorrect guess
+        attempts -= 1
+        print('Wrong guess! Attempts left: ' + str(attempts))
+    if '_' not in guessedWord:                    					 	# if there are no more placeholders, the user wins
+        print('\nCongratulations!! You guessed the word: ' + word)
+        break
+else:
+    print('\nYou\'ve run out of attempts! The word was: ' + word)    				# this is when user loses and the
+                                                                     				# word is revealed
